@@ -1,0 +1,115 @@
+.navbar a.my-feed {
+    /* Styles specific to the "My Feed" link */
+    color: orange; 
+    font-weight: bold;
+    background-color: #ddd; 
+}
+
+#heading {
+    padding: 20px;
+    text-align: center; 
+    color:#333; 
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+
+.greeting{
+    text-align: center;
+    font-style:normal;
+    margin-top: 40px;
+    color: rgb(51, 148, 244);
+    margin-bottom: 15px;
+}
+
+.status-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    margin-left:  auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    max-width: 500px;
+    padding: 15px;
+    position:relative;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .username {
+    font-weight: bold;
+    align-self: flex-start;
+  }
+  
+  .timestamp {   
+    position: absolute;
+    align-self:flex-end;
+    margin-left: 50px;
+    color: #888; /* Adjust color as needed */
+  }
+    
+  
+  
+  .status-content  {
+    margin-top:10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    max-height: 500px;
+    min-height: 100px;
+  
+    
+  }
+  
+  .status-content img {
+    margin-top: 5px;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+  
+  }
+  
+  
+  
+  .status-actions {
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  
+  .status-actions span {
+    margin-right: 20px;
+    color: #1877f2;
+    cursor: pointer;
+  }
+  
+  .status-actions span:last-child {
+    margin-right: 0;
+  }
+  
+  .post-list {
+    margin-top:30px;
+  
+  }
+  
+  .downld:hover {
+	  color: blue;
+	  transition: 0.5s;
+  }

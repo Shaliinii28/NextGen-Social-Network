@@ -1,0 +1,64 @@
+
+body {
+      font-family: Arial, sans-serif;
+      background-image: url('/static/background.webp');
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+
+}
+    
+.top-bar {
+      background-color: #ffff00;
+      padding: 10px;
+      text-align: right;
+    }
+
+.top-bar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+.login-container {
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #000000;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-top: 100px;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+.login-container h2 {
+      margin-bottom: 20px;
+    }
+    
+.login-container input[type="text"],
+.login-container input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    
+.login-container input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #000000;
+      color: #ffffff;
+      cursor: pointer;
+    }
+    
+.login-container input[type="submit"]:hover {
+      background-color: #333333;
+    }

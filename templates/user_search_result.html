@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Search for people{% endblock %}
+{% block content %}
+
+<div class="greeting" id="greeting"> 
+  <h1> Search result for {{query}} </h1>
+</div>
+
+{% if results %}
+    {% for user in results %}
+        <div class="profile-card">
+            <div class="profile-info">
+                <div class="profile-picture">
+                    <img src="/{{user.profile_picture}}" alt="Profile Picture">
+                </div>
+                <div class="profile-details">
+                    <h2 class="full-name">{{user.name}}</h2>
+                    <p class="username">@{{user.username}}</p>
+                </div>
+            </div>
+            <p class="bio"> {{user.bio}}</p>
+            {% if this_user.is_following(user) %}
+                <form action="/{{this_user.id}}/unfollows/{{user.id}}" method="POST">
+                    <input type="hidden" name="query" value="{{ query }}">
+                    <input type="submit" class="unfollow-button" value="Unfollow">
+                </form>
+            {% else %}
+                <form action="/{{this_user.id}}/follows/{{user.id}}" method="POST">
+                    <input type="hidden" name="query" value="{{ query }}">
+                    <input type="submit" class="follow-button" value="Follow">
+                </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+
+{% else %}
+   <div class="no-result">
+    <h1>No results found for your search.</h1>
+   </div>
+{% endif %}
+
+<link rel="stylesheet" type="text/css" href="/static/css/user_search.css">
+
+{% endblock %}
+
+
+
+
+

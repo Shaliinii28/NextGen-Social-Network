@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/background.webp');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;  /* Arrange content in a column */
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+          
+        }
+        
+        .greeting {
+            margin-top:150px;
+            text-align : center;
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;  /* Arrange content in a column */
+          align-items: center;      /* Center elements horizontally */
+        }
+
+
+        .text-container {
+            text-align: center;
+            font-size: 40px;
+            font-family: Arial, sans-serif; /* Change the font */
+            color: rgb(50, 119, 215); /* Change the text color */
+            margin-bottom:60px;
+        }
+
+        .button-container {
+            display: flex;           /* Arrange buttons horizontally */
+            justify-content: space-between; /* Space buttons evenly */
+            width: 300px;            /* Adjust width as desired */
+            margin-top: 20px;        /* Space between text and buttons */
+        }
+
+        button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="greeting"></div>
+         <h1> Hello, {{this_user.name}} </h1>
+    </div>
+  <div class="content">
+    <div class="text-container" id="textContainer">  
+
+    </div>  
+    <div class="button-container">
+      <form action="/{{this_user.id}}/profile/delete" method="POST">
+        <input type="hidden" name="action" value="cancel" id="action"> <button type="submit">Cancel</button>
+      </form>
+      <form action="/{{this_user.id}}/profile/delete" method="POST">
+        <input type="hidden" name="action" value="delete" id="action"> <button type="submit" id="deleteButton">Delete</button>
+    </form>
+    </div>
+  </div>
+  
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var textContainer = document.getElementById('textContainer');
+          var sentence = "Are you sure you want to delete your profile?\n This action is irreversible.";
+          var currentIndex = 0;
+      
+          function displayNextLetter() {
+            if (currentIndex < sentence.length) {
+              var newText = document.createElement("strong"); // Use strong for bold text
+              newText.textContent = sentence[currentIndex] // Append next character
+
+           
+              // Check for line break
+              if (sentence[currentIndex] === "\n") {
+                newText.appendChild(document.createElement("br")); // Add line break element
+              }
+
+
+
+              textContainer.appendChild(newText); // Append to container
+              currentIndex++;
+              setTimeout(displayNextLetter, 100); // Adjust the display interval as needed
+            }
+          }
+      
+          displayNextLetter();
+    
+
+          const deleteButton = document.getElementById("deleteButton");
+          
+          deleteButton.addEventListener('mouseover', () => {
+              deleteButton.style.backgroundColor = 'red'; // Change background color to red on hover
+            });
+            
+          deleteButton.addEventListener('mouseout', () => {
+              deleteButton.style.backgroundColor = ''; // Reset background color on mouseout
+            });
+        });
+      
+      
+      </script>
+</body>
+</html>

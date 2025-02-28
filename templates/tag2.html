@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %} {{ tag_name }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center"> #{{ tag_name }}</h1>
+    <div class="row">
+        <h2 class="text-center">Posts with negative sentiment</h2>
+        {% for post in tag_posts %}
+            {% if post.sentiment==0 %}
+              <div class="status-box">
+                    
+                    <div class="status-content">
+                        <p>{{ post.content }}</p>
+                        
+                    </div>
+                    <div class="tag">Tag: {{ post.tag }}</div>
+                    <div class="status-actions">
+                        <span>Like</span>
+                        <span>Comment</span>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<style>
+    .text-center {
+        text-align: center;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="/static/css/feed.css">
+{% endblock %}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/register.css">
+
+</head>
+
+
+<body>
+  <div class="register-container">
+    <h2>Register for NextGen</h2>
+    <form action="/register" enctype="multipart/form-data" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <div id="pic">
+        <label for="profile_picture" >Picture</label>
+        <input type="file" name="profile_picture" id="profile_picture" accept="image/*"> <!-- Input for image -->
+      </div>
+      <textarea name="bio" placeholder="About me:"></textarea> <!-- Textarea for bio -->
+
+
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+</body>
+
+</html>

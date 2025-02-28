@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ this_user.username }}'s Connections{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="profile-connections">
+      <h2>{{ connection_type }} of {{ this_user.username }}</h2>
+      <ul class="connections-list">
+        {% for user in connections %}
+          <li class="connection-item">
+            <div class="connection-image">
+              <img src="/{{ user.image_path }}" alt="{{ user.username }}'s Profile Picture">
+            </div>
+            <div class="connection-details">
+              <a href="/{{ user.id }}/profile" class="connection-name">{{ user.username }}</a>
+              <p class="connection-bio">{{ user.bio }}</p>
+              <div class="connection-stats">
+                <p class="connection-stat">{{ user.followers_count }} Followers</p>
+                <p class="connection-stat">{{ user.following_count }} Following</p>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  
+  <link rel="stylesheet" type="text/css" href="/static/css/connections.css">
+{% endblock %}

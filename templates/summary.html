@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Post Explanations
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>User Posts Summary</h1>
+        
+        <!-- Iterate through the list of explanations -->
+        {% if summary %}
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <p>{{ summary }}</p>
+                </li>
+            </ul>
+        {% else %}
+            <p>No explanations available.</p>
+        {% endif %}
+    </div>
+    <!-- Link the stylesheet for further customization -->
+    <link rel="stylesheet" type="text/css" href="/static/css/summary.css">
+{% endblock %}

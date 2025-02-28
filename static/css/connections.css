@@ -1,0 +1,76 @@
+/* connections.css */
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Profile connections header */
+.profile-connections h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+}
+
+/* Connections list */
+.connections-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Connection item */
+.connection-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.connection-item:last-child {
+    border-bottom: none;
+}
+
+/* Connection image */
+.connection-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+/* Connection details */
+.connection-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.connection-name {
+    font-size: 18px;
+    color: #0073e6;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+
+.connection-name:hover {
+    text-decoration: underline;
+}
+
+/* Connection bio */
+.connection-bio {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Connection stats */
+.connection-stat {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 2px;
+}

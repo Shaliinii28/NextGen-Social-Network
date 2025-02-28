@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Edit profile{% endblock %}
+
+{% block content %}
+<div class="register-container">
+  <h2>Edit profile</h2>
+  <form action="/{{this_user.id}}/profile/edit" method="POST">
+    <input type="text" name="name" placeholder="{{this_user.name}}">
+    <div id="pic">
+      <label for="profile_picture" >Picture</label>
+      <input type="file" name="profile_picture" id="profile_picture" accept="image/*"> <!-- Input for image -->
+    </div>
+    <textarea name="bio" placeholder="{{this_user.bio}}"></textarea> <!-- Textarea for bio -->
+    <input type="password" name="password" placeholder="{{this_user.password}}" required>
+    <input type="submit" value="update">
+  </form>
+</div>
+<link rel="stylesheet" type="text/css" href="/static/css/edit_profile.css">
+{% endblock %}
+  

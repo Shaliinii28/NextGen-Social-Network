@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+
+{% block title %}Uploaded post{% endblock %}
+{% block content %}
+
+<div class="greeting" id="greeting"> 
+   
+</div>
+
+<div class="status-box">
+        <div class="user-info">
+            <img src="/{{image_path}}" alt="Profile Picture">
+            <span class="username">{{this_user.username}}</span>
+            <div class="timestamp">{{this_post.timestamp}}</div>
+        </div>
+        <div class="status-content">
+            <p>{{this_post.content}}</p>
+            {% if image %}
+               <img src="/{{this_post.image}}" alt="Status Image">
+            {% endif %}
+        </div>
+        <div class="tag"> tag: #{{this_post.tag}}</div>
+        <div class="status-actions">
+            <span>Like</span>
+            <span>Comment</span>
+        </div>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/uploaded.css">
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var textContainer = document.getElementById('greeting');
+      var sentence = "Post created successfully!";
+      var currentIndex = 0;
+  
+      function displayNextLetter() {
+        if (currentIndex < sentence.length) {
+          var newText = document.createElement("strong"); // Use strong for bold text
+          newText.textContent = sentence[currentIndex] // Append next character
+          newText.style.fontSize = "35px";
+       
+          // Check for line break
+          if (sentence[currentIndex] === "\n") {
+            newText.appendChild(document.createElement("br")); // Add line break element
+          }
+
+
+
+          textContainer.appendChild(newText); // Append to container
+          currentIndex++;
+          setTimeout(displayNextLetter, 100); // Adjust the display interval as needed
+        }
+      }
+  
+      displayNextLetter();
+    });
+  </script>
+
+
+{% endblock %}

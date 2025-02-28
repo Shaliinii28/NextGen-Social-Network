@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+
+
+{% block content %}
+  <div class="container">
+      <div class="profile">
+        <div class="profile-image">
+          <img src="/{{image_path }}" alt="Profile Picture">
+        </div>
+        <div class="profile-user-settings">
+          <p class="profile-user-name">{{this_user.username}}</p>
+          <p class="profile-user-bio">{{this_user.bio}}</p>
+          <div class="profile-actions-container">
+            <!-- Existing buttons code -->
+<div class="profile-stats">
+  <a href="/{{this_user.id}}/profile/followers" class="profile-stat-button">
+    <p class="profile-stat-count">{{this_user.followers_count()}} &nbsp;</p>
+    <p class="profile-stat-name"> Followers</p>
+  </a>
+  <a href="/{{this_user.id}}/profile/following" class="profile-stat-button">
+    <p class="profile-stat-count">{{this_user.following_count()}} &nbsp;</p> 
+    <p class="profile-stat-name"> Following</p>
+  </a>
+  <button class="profile-stat-button">
+    <p class="profile-stat-count">{{post_count}} &nbsp;</p>
+    <p class="profile-stat-name">Posts</p>
+  </button>
+</div>
+
+            <div class="profile-settings-buttons">
+              <a href="/{{this_user.id}}/profile/edit" class="profile-edit-btn">Edit Profile</a>
+              <a href="/{{this_user.id}}/profile/delete" class="profile-settings-btn">Delete Profile</a>
+          </div>
+          
+          </div>
+        </div>
+      </div>
+
+  </div>
+  <br>
+  <hr>
+  <br>
+  <div  class="post-list with-background">
+    {% for post in user_posts %}
+      <div class="status-box">
+        <div class="user-info">
+          <img src="/{{image_path}}" alt="Profile Picture">
+          <span class="username">{{this_user.username}}</span>
+          <div class="timestamp">{{post.timestamp}}</div>
+        </div>
+        <div class="status-content">
+          <p>{{post.content}}</p>
+          {% if post.image %}
+             <img src="/{{post.image}}" alt="Status Image">
+          {% endif %}
+        </div>
+        <div class="tag">tag: {{post.tag}}</div>
+        <div class="status-actions">
+          <span>Like</span>
+          <span>Comment</span>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/static/css/profile.css">
+{% endblock %} 

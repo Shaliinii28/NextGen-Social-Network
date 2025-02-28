@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}What's trending!{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1> Trending Topics</h1>
+    <ul class="list-group">
+        {% for tag,count in sorted_tags | reverse %}
+            <li class="list-group-item">
+               {{ loop.index }}. {{ tag }} : {{count}} post &nbsp;
+			   <div class="list-ul">
+               <a href="/tag/{{ tag }}" class="tag">Positive</a> &nbsp;
+               <a href="/tag2/{{ tag }}" class="tag">Negative</a>
+			   </div>
+            </li>
+        {% endfor %} </ul>
+</div>
+<link rel="stylesheet" type="text/css" href="/static/css/trending.css">
+{% endblock %}
+
+

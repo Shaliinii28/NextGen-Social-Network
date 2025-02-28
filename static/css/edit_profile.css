@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/static/background.webp');
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+  }
+
+.top-bar {
+      background-color: #ffff00;
+      padding: 10px;
+      text-align: right;
+    }
+
+    .top-bar a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+
+
+
+.register-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 100px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  
+  .register-container h2 {
+    margin-bottom: 20px;
+  }
+  
+.register-container input[type="text"],
+.register-container input[type="password"],
+.register-container input[type="email"],
+.register-container textarea
+{
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+.register-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+  }
+  
+.register-container input[type="submit"]:hover {
+    background-color: #9d5c2b;
+  }
+
+#pic {
+    display: flex; /* Use flexbox to control the layout */
+    align-items: center; /* Align items vertically in the center */
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#pic label {
+   /* Add a small margin to the right of the label */
+    margin: 10px 0;
+    border-radius: 5px;
+    margin-right: 40px;
+    margin-left:10px;
+    color: grey;
+    font-family: Arial, sans-serif; /* Set font family */
+    font-size: 14px;
+}
+
+  

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Create post{% endblock %}
+{% block content %}
+<form class="container" action="/{{this_user.id}}/upload" enctype="multipart/form-data" method="POST">
+    <div class="row">
+        <img id="user-image" src="/{{image_path}}" alt="User Image">
+    </div>
+    <div class="row">
+        <h1>Create post</h1>
+    </div>
+   
+    <div class="row">
+        <textarea id="text-post" name="text-post" class="box1" placeholder="What's on your mind?">{{ content }}</textarea> 
+        <div class="box2">
+            <img id="image" src="/static/camera.png" alt="Selected Image" style="cursor: pointer;">
+            <input type="file" id="fileInput" name="fileInput" accept="image/*" style="display: none;">
+        </div>
+    </div>
+
+    <div class="generate">
+        <label for="tag">Tag</label>
+        <input type="text" class="tag" id="tag" name="tag" placeholder="Add tag">
+    </div>
+
+    <div class="row">
+        <div class="submit">
+            <input type="submit" id="post-btn" value="Post">
+        </div>
+    </div>
+</form>
+
+<link rel="stylesheet" type="text/css" href="/static/css/post.css">
+<script src="/static/js/post.js"></script> 
+
+<script>
+    // JavaScript to automatically update the content textarea with the generated caption
+    document.getElementById("fileInput").addEventListener("change", function(event) {
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+        
+        if (file) {
+            // Create a FileReader to read the uploaded image file
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const base64String = e.target.result;
+
+                // Send the base64String to the server for caption generation
+                fetch(`/{{ this_user.id }}/generate_caption`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({ image: base64String })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // Update the content textarea with the generated caption
+                    document.getElementById("text-post").value = data.caption;
+                })
+                .catch(error => console.error('Error:', error));
+            };
+            
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+{% endblock %}

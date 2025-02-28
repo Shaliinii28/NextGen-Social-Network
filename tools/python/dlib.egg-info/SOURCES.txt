@@ -1,0 +1,11 @@
+setup.py
+tools/python/dlib.egg-info/PKG-INFO
+tools/python/dlib.egg-info/SOURCES.txt
+tools/python/dlib.egg-info/dependency_links.txt
+tools/python/dlib.egg-info/not-zip-safe
+tools/python/dlib.egg-info/top_level.txt
+tools/python/dlib.egg-info/PKG-INFO
+tools/python/dlib.egg-info/SOURCES.txt
+tools/python/dlib.egg-info/dependency_links.txt
+tools/python/dlib.egg-info/not-zip-safe
+tools/python/dlib.egg-info/top_level.txt

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ this_user.username }}'s Followers{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="profile-connections">
+      <h2>Followers of {{ this_user.username }}</h2>
+      <ul class="connections-list">
+        {% for follower in followers %}
+          <li class="connection-item">
+            <div class="connection-image">
+              <img src="/{{ follower.profile_picture or '/static/images/default-profile.png' }}" alt="{{ follower.username }}'s Profile Picture">
+            </div>
+            <div class="connection-details">
+              <a class="connection-name">{{ follower.username }}</a>
+              <p class="connection-bio">{{ follower.bio }}</p>
+              <div class="connection-stats">
+                <p class="connection-stat">{{ follower.followers_count() }} Followers</p>
+                <p class="connection-stat">{{ follower.following_count() }} Following</p>
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  
+  <link rel="stylesheet" type="text/css" href="/static/css/connections.css">
+{% endblock %}
